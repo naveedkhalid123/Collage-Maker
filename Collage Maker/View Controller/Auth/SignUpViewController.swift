@@ -1,38 +1,49 @@
 //
-//  ViewController.swift
+//  SignInViewController.swift
 //  Collage Maker
 //
-//  Created by Naveed Khalid on 06/01/2025.
+//  Created by Naveed Khalid on 09/01/2025.
 //
 
 import UIKit
 
-class SignUpViewController: UIViewController {
+class SignInViewController: UIViewController {
     
     private let scrollView: UIScrollView = {
         let scrollView = UIScrollView()
         scrollView.translatesAutoresizingMaskIntoConstraints = false
+        scrollView.showsVerticalScrollIndicator = false
         return scrollView
     }()
     
-    private let customView: UIView = {
-        let view = UIView()
-        view.translatesAutoresizingMaskIntoConstraints = false
-        view.backgroundColor = UIColor(named: "viewColor")
-        view.layer.cornerRadius = 6
-        return view
+    
+    private let centerViw: UIView = {
+        let centerViw = UIView()
+        centerViw.translatesAutoresizingMaskIntoConstraints = false
+        return centerViw
     }()
+    
+    
+    private let signUpView: UIView = {
+        let signUpView = UIView()
+        signUpView.translatesAutoresizingMaskIntoConstraints = false
+        signUpView.backgroundColor = UIColor(named: "viewColor")
+        signUpView.layer.cornerRadius = 6
+        return signUpView
+    }()
+    
     
     private let signUpButton: UIButton = {
         let button = UIButton()
         button.translatesAutoresizingMaskIntoConstraints = false
-        button.setTitle("Sign In", for: .normal)
+        button.setTitle("Sign Up", for: .normal)
         button.backgroundColor = UIColor(named: "main")
         button.setTitleColor(.white, for: .normal)
         button.titleLabel?.font = UIFont.systemFont(ofSize: 18, weight: .bold)
         button.layer.cornerRadius = 6
         return button
     }()
+    
     
     private let usernameLbl: UILabel = {
         let userNamelbl = UILabel()
@@ -41,7 +52,8 @@ class SignUpViewController: UIViewController {
         userNamelbl.font = UIFont.systemFont(ofSize: 14, weight: .bold)
         return userNamelbl
     }()
-
+    
+    
     private let tfuserName: UITextField = {
         let tfuserName = UITextField()
         tfuserName.translatesAutoresizingMaskIntoConstraints = false
@@ -68,10 +80,11 @@ class SignUpViewController: UIViewController {
     
     }()
     
+    
     private let passwordLbl : UILabel = {
         let passwordLbl = UILabel()
         passwordLbl.translatesAutoresizingMaskIntoConstraints = false
-        passwordLbl.text = "Password"
+        passwordLbl.text = "Email"
         passwordLbl.font =  UIFont.systemFont(ofSize: 14, weight: .bold)
         return passwordLbl
     }()
@@ -82,11 +95,10 @@ class SignUpViewController: UIViewController {
         tfPassword.translatesAutoresizingMaskIntoConstraints = false
         tfPassword.backgroundColor = .white
         tfPassword.font = UIFont.systemFont(ofSize: 12)
-        tfPassword.isSecureTextEntry = true
         tfPassword.layer.cornerRadius = 6
         
         tfPassword.attributedPlaceholder = NSAttributedString(
-            string: "Enter Password",
+            string: "Enter Email",
             attributes: [
                 .foregroundColor: UIColor.lightGray,
                 .font: UIFont.systemFont(ofSize: 14, weight: .medium)
@@ -106,27 +118,47 @@ class SignUpViewController: UIViewController {
         
     }()
     
-    private let forgotBtn: UIButton = {
-        let forgotBtn = UIButton()
-        forgotBtn.translatesAutoresizingMaskIntoConstraints = false
+    private let confirmPasswordLbl : UILabel = {
+        let confirmPasswordLbl = UILabel()
+        confirmPasswordLbl.translatesAutoresizingMaskIntoConstraints = false
+        confirmPasswordLbl.text = "Password"
+        confirmPasswordLbl.font =  UIFont.systemFont(ofSize: 14, weight: .bold)
+        return confirmPasswordLbl
+    }()
+   
+    
+    private let tfConfirmPassword: UITextField = {
+        let tfConfirmPassword = UITextField()
+        tfConfirmPassword.translatesAutoresizingMaskIntoConstraints = false
+        tfConfirmPassword.backgroundColor = .white
+        tfConfirmPassword.font = UIFont.systemFont(ofSize: 12)
+        tfConfirmPassword.isSecureTextEntry = true
+        tfConfirmPassword.layer.cornerRadius = 6
         
-      
-        let attributedTitle = NSAttributedString(
-            string: "Forgot Password",
+        tfConfirmPassword.attributedPlaceholder = NSAttributedString(
+            string: "Enter Password",
             attributes: [
-                .foregroundColor: UIColor.main,
-                .font: UIFont.systemFont(ofSize: 10, weight: .regular),
-                .underlineStyle: NSUnderlineStyle.single.rawValue
+                .foregroundColor: UIColor.lightGray,
+                .font: UIFont.systemFont(ofSize: 14, weight: .medium)
             ]
         )
-        forgotBtn.setAttributedTitle(attributedTitle, for: .normal)
-        return forgotBtn
-    }()
 
+     
+        let paddingView = UIView(frame: CGRect(x: 0, y: 0, width: 10, height: tfConfirmPassword.frame.height))
+        tfConfirmPassword.leftView = paddingView
+        tfConfirmPassword.leftViewMode = .always
+        
+        let rightPaddingView = UIView(frame: CGRect(x: 0, y: 0, width: 10, height: tfConfirmPassword.frame.height))
+        tfConfirmPassword.rightView = rightPaddingView
+        tfConfirmPassword.rightViewMode = .always
+        
+        return tfConfirmPassword
+        
+    }()
     
     private let signInBtn: UIButton = {
         let signInBtn = UIButton()
-        signInBtn.setTitle("Sign In", for: .normal)
+        signInBtn.setTitle("Sign Up", for: .normal)
         signInBtn.translatesAutoresizingMaskIntoConstraints = false
         signInBtn.backgroundColor =  UIColor(named: "main")
         signInBtn.layer.cornerRadius = 6
@@ -136,10 +168,12 @@ class SignUpViewController: UIViewController {
         
     }()
     
+    
+    
     private let signInWith : UILabel = {
         let signInWith = UILabel()
         signInWith.translatesAutoresizingMaskIntoConstraints = false
-        signInWith.text = "Sign In With Using"
+        signInWith.text = "Sign Up With Using"
         signInWith.textColor = UIColor(named: "black")
         signInWith.font = UIFont.systemFont(ofSize: 12, weight: .regular)
         return signInWith
@@ -252,14 +286,14 @@ class SignUpViewController: UIViewController {
     private let accountMessageview : UIView = {
         let accountMessageview = UIView()
         accountMessageview.translatesAutoresizingMaskIntoConstraints = false
-       return accountMessageview
+        return accountMessageview
     }()
     
     
     private let notAccountLbl : UILabel = {
         let notAccountLbl = UILabel()
         notAccountLbl.translatesAutoresizingMaskIntoConstraints = false
-        notAccountLbl.text = "Don't have an account?"
+        notAccountLbl.text = "Already have an account?"
         notAccountLbl.textColor = UIColor(named: "subHead")
         notAccountLbl.font = UIFont.systemFont(ofSize: 12, weight: .regular)
         return notAccountLbl
@@ -272,7 +306,7 @@ class SignUpViewController: UIViewController {
         
       
         let attributedTitle = NSAttributedString(
-            string: "Sign Up",
+            string: "Sign In",
             attributes: [
                 .foregroundColor: UIColor.main,
                 .font: UIFont.systemFont(ofSize: 12, weight: .regular),
@@ -281,18 +315,19 @@ class SignUpViewController: UIViewController {
         signUpBtn.setAttributedTitle(attributedTitle, for: .normal)
         return signUpBtn
     }()
-
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = UIColor(named: "theme")
         setupScrollView()
-        setupCustomView()
+        setUpCenterView()
+        setUpSignUpView()
         setupSignUpButton()
         setupUserNameLabel()
         setupUserNameTextField()
         setupPasswordLbl()
         setupPasswordTextField()
-        setupForgotPassBtn()
+        setupConfirmPasswordLbl()
+        setupConfirmPasswordTextField()
         setupSignInBtn()
         setupsignInWithLBl()
         setupAppleView()
@@ -311,7 +346,7 @@ class SignUpViewController: UIViewController {
         setupNotAccountLbl()
         setupsignUpBtn()
     }
-
+    
     private func setupScrollView() {
         view.addSubview(scrollView)
         NSLayoutConstraint.activate([
@@ -322,94 +357,125 @@ class SignUpViewController: UIViewController {
         ])
     }
     
-    private func setupCustomView() {
-        scrollView.addSubview(customView)
+    private func setUpCenterView(){
+        scrollView.addSubview(centerViw)
         NSLayoutConstraint.activate([
-            customView.topAnchor.constraint(equalTo: scrollView.topAnchor, constant: 127),
-            customView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 47),
-            customView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -47),
-            customView.centerXAnchor.constraint(equalTo: scrollView.centerXAnchor),
-            customView.widthAnchor.constraint(equalToConstant: 279),
-            customView.heightAnchor.constraint(equalToConstant: 274)
+            centerViw.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 47),
+            centerViw.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -47),
+            centerViw.centerXAnchor.constraint(equalTo: scrollView.centerXAnchor),
+            centerViw.centerYAnchor.constraint(equalTo: scrollView.centerYAnchor),
+            // for making the view in the center , remove the top and bottom , and give it horizontally and vertically center
+            centerViw.widthAnchor.constraint(equalToConstant: 279),
+            centerViw.heightAnchor.constraint(equalToConstant: 600),
         ])
     }
     
-    private func setupSignUpButton() {
-        customView.addSubview(signUpButton)
+    private func setUpSignUpView() {
+        centerViw.addSubview(signUpView)
         NSLayoutConstraint.activate([
-            signUpButton.centerXAnchor.constraint(equalTo: customView.centerXAnchor),
-            signUpButton.topAnchor.constraint(equalTo: customView.topAnchor, constant: -27),
+            signUpView.topAnchor.constraint(equalTo: centerViw.topAnchor, constant: 0),
+            signUpView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 47),
+            signUpView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -47),
+            signUpView.centerXAnchor.constraint(equalTo: centerViw.centerXAnchor),
+            signUpView.widthAnchor.constraint(equalToConstant: 279),
+            signUpView.heightAnchor.constraint(equalToConstant: 320)
+        ])
+    }
+    
+    
+    
+    private func setupSignUpButton() {
+        signUpView.addSubview(signUpButton)
+        NSLayoutConstraint.activate([
+            signUpButton.centerXAnchor.constraint(equalTo: signUpView.centerXAnchor),
+            signUpButton.topAnchor.constraint(equalTo: signUpView.topAnchor, constant: -27),
             signUpButton.widthAnchor.constraint(equalToConstant: 185),
             signUpButton.heightAnchor.constraint(equalToConstant: 56)
         ])
         signUpButton.addTarget(self, action: #selector(signUpButtonTapped), for: .touchUpInside)
     }
     
+    
+    
     private func setupUserNameLabel() {
-        customView.addSubview(usernameLbl)
+        signUpView.addSubview(usernameLbl)
         NSLayoutConstraint.activate([
-            usernameLbl.leadingAnchor.constraint(equalTo: customView.leadingAnchor, constant: 22),
-            usernameLbl.topAnchor.constraint(equalTo: customView.topAnchor, constant: 45)
+            usernameLbl.leadingAnchor.constraint(equalTo: signUpView.leadingAnchor, constant: 22),
+            usernameLbl.topAnchor.constraint(equalTo: signUpView.topAnchor, constant: 45)
         ])
     }
     
+    
     private func setupUserNameTextField() {
-        customView.addSubview(tfuserName)
+        signUpView.addSubview(tfuserName)
         NSLayoutConstraint.activate([
                 tfuserName.topAnchor.constraint(equalTo: usernameLbl.bottomAnchor, constant: 6),
-                tfuserName.leadingAnchor.constraint(equalTo: customView.leadingAnchor, constant: 22),
-                tfuserName.trailingAnchor.constraint(equalTo: customView.trailingAnchor, constant: -22),
+                tfuserName.leadingAnchor.constraint(equalTo: signUpView.leadingAnchor, constant: 22),
+                tfuserName.trailingAnchor.constraint(equalTo: signUpView.trailingAnchor, constant: -22),
                 tfuserName.heightAnchor.constraint(equalToConstant: 36)
             ])
 
     }
     
     private func setupPasswordLbl() {
-        customView.addSubview(passwordLbl)
+        signUpView.addSubview(passwordLbl)
         NSLayoutConstraint.activate([
             passwordLbl.topAnchor.constraint(equalTo: tfuserName.bottomAnchor, constant: 10),
-            passwordLbl.leadingAnchor.constraint(equalTo: customView.leadingAnchor, constant: 22),
+            passwordLbl.leadingAnchor.constraint(equalTo: signUpView.leadingAnchor, constant: 22),
         ])
     }
 
     
     private func setupPasswordTextField(){
-        customView.addSubview(tfPassword)
+        signUpView.addSubview(tfPassword)
         NSLayoutConstraint.activate([
             tfPassword.topAnchor.constraint(equalTo:passwordLbl.bottomAnchor , constant: 6),
-            tfPassword.leadingAnchor.constraint(equalTo: customView.leadingAnchor, constant: 22),
-            tfPassword.trailingAnchor.constraint(equalTo: customView.trailingAnchor, constant: -22),
+            tfPassword.leadingAnchor.constraint(equalTo: signUpView.leadingAnchor, constant: 22),
+            tfPassword.trailingAnchor.constraint(equalTo: signUpView.trailingAnchor, constant: -22),
             tfPassword.heightAnchor.constraint(equalToConstant: 36),
             
     
         ])
     }
     
-    private func setupForgotPassBtn() {
-        customView.addSubview(forgotBtn)
+    private func setupConfirmPasswordLbl() {
+        signUpView.addSubview(confirmPasswordLbl)
         NSLayoutConstraint.activate([
-            forgotBtn.topAnchor.constraint(equalTo: tfPassword.bottomAnchor, constant: 6),
-            forgotBtn.trailingAnchor.constraint(equalTo: customView.trailingAnchor, constant: -8),
-            forgotBtn.widthAnchor.constraint(equalToConstant: 120),
-            forgotBtn.heightAnchor.constraint(equalToConstant: 14)
+            confirmPasswordLbl.topAnchor.constraint(equalTo: tfPassword.bottomAnchor, constant: 10),
+            confirmPasswordLbl.leadingAnchor.constraint(equalTo: signUpView.leadingAnchor, constant: 22),
+        ])
+    }
+
+    
+    private func setupConfirmPasswordTextField(){
+        signUpView.addSubview(tfConfirmPassword)
+        NSLayoutConstraint.activate([
+            tfConfirmPassword.topAnchor.constraint(equalTo:confirmPasswordLbl.bottomAnchor , constant: 6),
+            tfConfirmPassword.leadingAnchor.constraint(equalTo: signUpView.leadingAnchor, constant: 22),
+            tfConfirmPassword.trailingAnchor.constraint(equalTo: signUpView.trailingAnchor, constant: -22),
+            tfConfirmPassword.heightAnchor.constraint(equalToConstant: 36),
+            
+    
         ])
     }
     
+    
     private func setupSignInBtn(){
-        customView.addSubview(signInBtn)
+        signUpView.addSubview(signInBtn)
         NSLayoutConstraint.activate([
-            signInBtn.topAnchor.constraint(equalTo: forgotBtn.bottomAnchor, constant: 12),
-            signInBtn.leadingAnchor.constraint(equalTo: customView.leadingAnchor, constant: 20),
-            signInBtn.trailingAnchor.constraint(equalTo: customView.trailingAnchor, constant: -20),
+            signInBtn.topAnchor.constraint(equalTo: tfConfirmPassword.bottomAnchor, constant: 20),
+            signInBtn.leadingAnchor.constraint(equalTo: signUpView.leadingAnchor, constant: 20),
+            signInBtn.trailingAnchor.constraint(equalTo: signUpView.trailingAnchor, constant: -20),
             signInBtn.widthAnchor.constraint(equalToConstant: 235),
             signInBtn.heightAnchor.constraint(equalToConstant: 36),
         ])
     }
     
+    
     private func setupsignInWithLBl() {
         view.addSubview(signInWith)
         NSLayoutConstraint.activate([
-            signInWith.topAnchor.constraint(equalTo: customView.bottomAnchor, constant: 15),
+            signInWith.topAnchor.constraint(equalTo: signUpView.bottomAnchor, constant: 15),
             signInWith.centerXAnchor.constraint(equalTo: view.centerXAnchor)
         ])
     }
@@ -536,13 +602,13 @@ class SignUpViewController: UIViewController {
     
     
     private func setupaccountMessageview() {
-        customView.addSubview(accountMessageview)
+        signUpView.addSubview(accountMessageview)
         NSLayoutConstraint.activate([
             accountMessageview.topAnchor.constraint(equalTo: guestLbl.bottomAnchor, constant: 20),
-            accountMessageview.centerXAnchor.constraint(equalTo: customView.centerXAnchor), // Centered horizontally
+            accountMessageview.bottomAnchor.constraint(equalTo: centerViw.bottomAnchor, constant: 2),
+            accountMessageview.centerXAnchor.constraint(equalTo: signUpView.centerXAnchor),
             accountMessageview.heightAnchor.constraint(equalToConstant: 17),
-            accountMessageview.leadingAnchor.constraint(equalTo: customView.leadingAnchor, constant: 54), // Padding from left
-            accountMessageview.trailingAnchor.constraint(equalTo: customView.trailingAnchor, constant: -54) // Padding from right
+            accountMessageview.widthAnchor.constraint(equalToConstant: 190),
         ])
     }
 
@@ -551,7 +617,7 @@ class SignUpViewController: UIViewController {
     private func setupNotAccountLbl() {
         accountMessageview.addSubview(notAccountLbl)
         NSLayoutConstraint.activate([
-            notAccountLbl.leadingAnchor.constraint(equalTo: accountMessageview.leadingAnchor, constant: 25),
+            notAccountLbl.leadingAnchor.constraint(equalTo: accountMessageview.leadingAnchor, constant:2),
             notAccountLbl.centerYAnchor.constraint(equalTo: accountMessageview.centerYAnchor)
         ])
     }
@@ -560,19 +626,16 @@ class SignUpViewController: UIViewController {
         accountMessageview.addSubview(signUpBtn)
         NSLayoutConstraint.activate([
             signUpBtn.leadingAnchor.constraint(equalTo: notAccountLbl.trailingAnchor , constant: 2),
-            signUpBtn.centerYAnchor.constraint(equalTo: accountMessageview.centerYAnchor)
+            signUpBtn.centerYAnchor.constraint(equalTo: accountMessageview.centerYAnchor),
         ])
     }
-    
     // Action for Sign-Up Button
     @objc private func signUpButtonTapped() {
         print("Sign-Up button tapped!")
     }
+    
 }
 
 
 
 
-
-
-// In case of width , dont give width to the button and textfeilds, give them leading , trailing anf height only .
