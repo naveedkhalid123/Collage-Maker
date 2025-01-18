@@ -3,10 +3,10 @@ Collage Maker is a feature-rich iOS application designed to empower users to cre
 
 Key Features:
 
-1.User Authentication & Profile Management
-2.Sign Up & Login: Secure user authentication via email and password.
-3.Password Recovery: Users can reset their passwords seamlessly.
-4.Profile Management: Users can view and edit their profile details, including name, email, and preferences.
+User Authentication & Profile Management
+Sign Up & Login: Secure user authentication via email and password.
+Password Recovery: Users can reset their passwords seamlessly.
+Profile Management: Users can view and edit their profile details, including name, email, and preferences.
 
 Home Screen & Navigation
 
