@@ -37,6 +37,7 @@ Multimedia & AI Features:
    
 
 User-Created Templates:
+
 Custom Templates: Users can create and save their own templates, making future projects faster and more efficient.
 
 
