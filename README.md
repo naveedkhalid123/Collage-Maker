@@ -32,13 +32,15 @@ Multimedia & AI Features:
 
 1. Image & Video Integration: Easily add photos and videos from your device’s gallery, or select from the app’s collection.
 
-2.AI Description: Automatically generate intelligent image descriptions with AI to enhance collages.
+2. AI Description: Automatically generate intelligent image descriptions with AI to enhance collages.
 
-3.Audio Features: Add background audio to your collages, adjust the audio's timing, and use the built-in audio cropping tool.
+3. Audio Features: Add background audio to your collages, adjust the audio's timing, and use the built-in audio cropping tool.
+   
 
 User-Created Templates:
 
 Custom Templates: Users can create and save their own templates, making future projects faster and more efficient.
+
 
 Advanced Styling & Effects:
 
@@ -46,9 +48,11 @@ Advanced Styling & Effects:
 
 2.Font Customization: Choose from a variety of fonts and adjust properties such as size, style, and opacity.
 
+
 Payment Integration:
 
 Pro User Access: Unlock premium features via secure in-app purchases, including advanced templates, additional fonts, and exclusive design elements.
+
 
 Technologies Used:
 
@@ -56,6 +60,6 @@ Technologies Used:
 
 2. UI Framework: UIKit
 
-3.AI Integration: AI-powered image description generation
+3. AI Integration: AI-powered image description generation
 
 4. Backend: Firebase (for authentication, user data storage, and file management)
