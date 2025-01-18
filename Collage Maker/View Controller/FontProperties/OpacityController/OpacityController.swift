@@ -1,13 +1,13 @@
 //
-//  SelectTransitionsController.swift
+//  OpacityController.swift
 //  Collage Maker
 //
-//  Created by Naveed Khalid on 17/01/2025.
+//  Created by Naveed Khalid on 18/01/2025.
 //
 
 import UIKit
 
-class SelectTransitionsController: UIViewController {
+class OpacityController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()

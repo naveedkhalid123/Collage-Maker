@@ -1,13 +1,13 @@
 //
-//  SelectEffectsController.swift
+//  FontStyleController.swift
 //  Collage Maker
 //
-//  Created by Naveed Khalid on 17/01/2025.
+//  Created by Naveed Khalid on 18/01/2025.
 //
 
 import UIKit
 
-class SelectEffectsController: UIViewController {
+class FontStyleController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()

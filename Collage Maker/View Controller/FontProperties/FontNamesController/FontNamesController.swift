@@ -1,13 +1,13 @@
 //
-//  AddTransitionsController.swift
+//  FontNamesController.swift
 //  Collage Maker
 //
-//  Created by Naveed Khalid on 17/01/2025.
+//  Created by Naveed Khalid on 18/01/2025.
 //
 
 import UIKit
 
-class AddTransitionsController: UIViewController {
+class FontNamesController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
