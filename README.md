@@ -24,7 +24,7 @@ Projects & Collage Creation:
 
 2. Artboard: Import images and videos from the device's gallery or app library to start creating a collage.
 
-3.Templates & Layouts: Select from various grid templates, customizable layouts, and design options for effortless collage creation.
+3. Templates & Layouts: Select from various grid templates, customizable layouts, and design options for effortless collage creation.
 
 4. Customization: Adjust border styles, colors, fonts, opacity, and animations to personalize collages.
 
@@ -46,7 +46,7 @@ Advanced Styling & Effects:
 
 1. Color Picker: Access a powerful color picker tool to customize background colors, borders, and other visual elements.
 
-2.Font Customization: Choose from a variety of fonts and adjust properties such as size, style, and opacity.
+2. Font Customization: Choose from a variety of fonts and adjust properties such as size, style, and opacity.
 
 
 Payment Integration:
