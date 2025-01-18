@@ -2,7 +2,6 @@ Collage Maker App 🎨📸
 Collage Maker is a feature-rich iOS application designed to empower users to create stunning and personalized photo collages with ease. The app provides an intuitive interface with a wide array of customizable templates, image editing tools, and multimedia features, making it ideal for users looking to showcase their creativity in a fun and dynamic way.
 
 Key Features:
-
 User Authentication & Profile Management
 
 Sign Up & Login: Secure user authentication via email and password.
