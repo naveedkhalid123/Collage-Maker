@@ -61,5 +61,7 @@ Pro User Access: Unlock premium features via secure in-app purchases, including 
 4. Backend: Firebase (for authentication, user data storage, and file management)
 
 🎨 Visual Preview
+![Collage Maker Preview](https://github.com/naveedkhalid123/Collage-Maker/blob/main/image-2.jpg)
+
 
 👤 Author Developed and maintained by Muhammad Naveed Khalid
