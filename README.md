@@ -63,5 +63,8 @@ Pro User Access: Unlock premium features via secure in-app purchases, including 
 🎨 Visual Preview
 ![Collage Maker Preview](https://github.com/naveedkhalid123/Collage-Maker/blob/main/image-2.jpg)
 
+![Collage Maker Preview](https://github.com/naveedkhalid123/Collage-Maker/blob/1c2effe76fd671694e66581db7831d94a599a888/image-3.jpg)
+
+
 
 👤 Author Developed and maintained by Muhammad Naveed Khalid
