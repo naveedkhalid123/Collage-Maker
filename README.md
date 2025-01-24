@@ -67,4 +67,4 @@ Pro User Access: Unlock premium features via secure in-app purchases, including 
 
 
 
-👤 Author Developed and maintained by Muhammad Naveed Khalid
+Developed by Muhammad Naveed Khalid
